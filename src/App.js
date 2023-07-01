@@ -1,3 +1,5 @@
+import { pizzaData } from "./data";
+
 function App() {
   return (
     <div className="container">
@@ -18,20 +20,30 @@ function Header() {
   );
 }
 function Menu() {
+  console.log(pizzaData);
   return (
     <main className="menu">
       <h2>Our menu</h2>
-      <Pizza />
+      <Pizza
+        name="Pizza Focaccia"
+        ingredients="Bread with italian olive oil and rosemary"
+        imgUrl="pizzas/focaccia.jpg"
+        price={10}
+      />
+     
     </main>
   );
 }
 
-function Pizza() {
+function Pizza(props) {
   return (
     <div>
-      <img src="pizzas/focaccia.jpg" alt="pizza" />
-      <h3>Pizza Focaccia</h3>
-      <p>Bread with italian olive oil and rosemary</p>
+      <img src={props.imgUrl} alt={props.name} />
+      <div>
+        <h3>{props.name}</h3>
+        <p>{props.ingredients}</p>
+        <span>{props.price}</span>
+      </div>
     </div>
   );
 }
