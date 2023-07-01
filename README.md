@@ -1,3 +1,7 @@
+# FAST REACT PIZZA CO.
+
+![image](https://github.com/SEIDY-KANTE/pizza-menu/assets/82980518/ebf822fa-a4d4-4db7-b9bf-06a3346b498b)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
