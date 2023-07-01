@@ -1,6 +1,6 @@
 function App() {
   return (
-    <div>
+    <div className="container">
       <Header />
       <Menu />
       <Footer />
@@ -9,12 +9,17 @@ function App() {
 }
 
 function Header() {
-  const style = { color: "red", fontSize: "48px", textTransform: "uppercase" };
-  return <h1 style={style}>Fast React Pizza Co.</h1>;
+  // const style = { color: "red", fontSize: "48px", textTransform: "uppercase" };
+  const style = {};
+  return (
+    <header className="header">
+      <h1 style={style}>Fast React Pizza Co.</h1>;
+    </header>
+  );
 }
 function Menu() {
   return (
-    <main>
+    <main className="menu">
       <h2>Our menu</h2>
       <Pizza />
     </main>
@@ -25,7 +30,7 @@ function Pizza() {
   return (
     <div>
       <img src="pizzas/focaccia.jpg" alt="pizza" />
-      <h2>Pizza Focaccia</h2>
+      <h3>Pizza Focaccia</h3>
       <p>Bread with italian olive oil and rosemary</p>
     </div>
   );
@@ -36,8 +41,12 @@ function Footer() {
   const openHour = 12;
   const closeHour = 23;
   const isOpen = hour >= openHour && hour <= closeHour;
-  const message = isOpen ? "We're currently" : "Closed";
-  return <footer>{message}</footer>;
+  const message = isOpen ? "We're currently open" : "Closed";
+  return (
+    <footer className="footer">
+      {new Date().toLocaleTimeString()}. {message}
+    </footer>
+  );
 }
 
 export default App;
