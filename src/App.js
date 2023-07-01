@@ -21,17 +21,28 @@ function Header() {
 }
 function Menu() {
   //console.log(pizzaData);
-  const numPizzas = pizzaData.length;
+  //const pizzas = [];
+  const pizzas = pizzaData;
+  const numPizzas = pizzas.length;
   return (
     <main className="menu">
       <h2>Our menu</h2>
-      {numPizzas > 0 && (
-        <ul className="pizzas">
-          {pizzaData.map((pizza, i) => {
-            console.log(i);
-            return <Pizza pizzaObj={pizza} key={i} />;
-          })}
-        </ul>
+      {numPizzas > 0 ? (
+        //React fragment
+        <>
+          <p>
+            Authentic Italian cuisine. {numPizzas} creative dishes to choose
+            from. All from our stone oven, all organic, all delicious.
+          </p>
+          <ul className="pizzas">
+            {pizzas.map((pizza, i) => {
+              //console.log(i);
+              return <Pizza pizzaObj={pizza} key={i} />;
+            })}
+          </ul>
+        </>
+      ) : (
+        <p>We're still working on our menu. Please come back later :)</p>
       )}
       {/* <Pizza
         name="Pizza Focaccia"
@@ -44,14 +55,17 @@ function Menu() {
   );
 }
 
-function Pizza(props) {
+function Pizza({ pizzaObj }) {
+  //console.log(pizzaObj);
+  //if (pizzaObj.soldOut) return null; //Don't display this pizza if soldOut is true
+
   return (
-    <li className="pizza">
-      <img src={props.pizzaObj.imgUrl} alt={props.pizzaObj.name} />
+    <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
+      <img src={pizzaObj.imgUrl} alt={pizzaObj.name} />
       <div>
-        <h3>{props.pizzaObj.name}</h3>
-        <p>{props.pizzaObj.ingredients}</p>
-        <span>{props.pizzaObj.price}</span>
+        <h3>{pizzaObj.name}</h3>
+        <p>{pizzaObj.ingredients}</p>
+        <span>{pizzaObj.soldOut ? "SOLD OUT" : pizzaObj.price + "€"} </span>
       </div>
     </li>
   );
