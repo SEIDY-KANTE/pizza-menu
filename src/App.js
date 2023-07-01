@@ -1,3 +1,4 @@
+import { CLOSE_HOUR, IS_OPEN, OPEN_HOUR } from "./config";
 import { pizzaData } from "./data";
 
 function App() {
@@ -72,30 +73,25 @@ function Pizza({ pizzaObj }) {
 }
 
 function Footer() {
-  const hour = new Date().getHours();
-  const openHour = 12;
-  const closeHour = 23;
-  const isOpen = hour >= openHour && hour <= closeHour;
-
   return (
     <footer className="footer">
-      {isOpen ? (
-        <Order openHour={openHour} closeHour={closeHour} />
+      {IS_OPEN ? (
+        <Order />
       ) : (
         <p>
-          We're happy to welcome you between {openHour}:00 and {closeHour}:00.
+          We're happy to welcome you between {OPEN_HOUR}:00 and {CLOSE_HOUR}:00.
         </p>
       )}
     </footer>
   );
 }
 
-function Order(props) {
+function Order() {
   return (
     <div className="order">
       <p>
-        We're open from {props.openHour}:00 to {props.closeHour}:00. Come visit
-        us or order online.
+        We're open from {OPEN_HOUR}:00 to {CLOSE_HOUR}:00. Come visit us or
+        order online.
       </p>
       <button className="btn">Order</button>
     </div>
