@@ -1,4 +1,4 @@
-# FAST REACT PIZZA CO.
+# PIZZA MUENU
 
 ![image](https://github.com/SEIDY-KANTE/pizza-menu/assets/82980518/ebf822fa-a4d4-4db7-b9bf-06a3346b498b)
 
